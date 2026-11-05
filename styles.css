@@ -1,0 +1,354 @@
+/* ========================================= */
+/* IMPERIUM GALAHAD - AZUL METALIZADO PANAL */
+/* ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
+}
+
+/* FONDO AZUL METALIZADO CON PANAL DE ABEJAS DIFUMINADO */
+body {
+    background: linear-gradient(135deg, #020A1F 0%, #0A2463 30%, #123A8C 55%, #1E90FF 80%, #00BFFF 100%);
+    background-attachment: fixed;
+    color: #0A1A33;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* PANAL DE OCTAGONOS DIFUMINADOS - FONDO */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.55;
+    filter: blur(1.5px);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpolygon points='60,5 95,20 95,60 60,95 25,60 25,20' fill='none' stroke='%2300BFFF' stroke-width='2' opacity='0.45'/%3E%3Cpolygon points='60,25 80,35 80,60 60,75 40,60 40,35' fill='%231E90FF' opacity='0.18'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 400px;
+    height: 400px;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(0,191,255,0.45) 0%, transparent 70%);
+    filter: blur(30px);
+}
+
+/* ========================================= */
+/* HEADER - METALIZADO */
+/* ========================================= */
+header {
+    background: linear-gradient(180deg, #FFFFFF 0%, #DCE9FF 40%, #7AB8FF 70%, #1E90FF 100%);
+    border-bottom: 4px solid #00BFFF;
+    padding: 35px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #021E4A;
+    text-shadow: 0 2px 0 #FFFFFF, 0 4px 8px rgba(0,0,0,0.35);
+}
+
+header p {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0A2463;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+/* ========================================= */
+/* NAV - EN LINEA HORIZONTAL */
+/* ========================================= */
+nav {
+    background: linear-gradient(180deg, #0A2463 0%, #123A8C 50%, #0A1A33 100%);
+    padding: 16px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #00BFFF;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    background: linear-gradient(180deg, #FFFFFF 0%, #CDE6FF 100%);
+    color: #0A2463;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border-top: 3px solid #FFFFFF;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.5), 0 8px 15px rgba(0,0,0,0.35);
+}
+
+nav ul li a:hover {
+    background: linear-gradient(180deg, #00BFFF 0%, #1E90FF 100%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ========================================= */
+/* BOXES BLANCAS 2.5D - RELIEVE */
+/* ========================================= */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+section, #login, #login-form, #register-form, #forgot-form, #change-form {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F2F7FF 60%, #DCE9FF 100%);
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 28px;
+    border: 1px solid #FFFFFF;
+    /* RELIEVE 2.5D - SOMBRA 0.5 EN BORDE SUPERIOR */
+    border-top: 6px solid #FFFFFF;
+    box-shadow:
+        inset 0 6px 10px rgba(255,255,255,0.9),
+        inset 0 -4px 8px rgba(10,36,99,0.15),
+        0 -6px 12px rgba(0,0,0,0.5),
+        0 12px 25px rgba(0,0,0,0.5),
+        0 4px 0 rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Octagono decorativo dentro de cada box */
+section::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(0,191,255,0.25), rgba(30,144,255,0.05));
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    filter: blur(1px);
+    z-index: 0;
+}
+
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #0A2463;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #00BFFF;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+section p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #1A2B4A;
+    margin-bottom: 12px;
+}
+
+section ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+section ul li {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EAF3FF 100%);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    border-top: 3px solid #FFFFFF;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.25);
+    font-weight: 700;
+    font-size: 15px;
+    color: #0A2463;
+}
+
+/* ========================================= */
+/* INPUTS - BOXES DE INICIO DE SESIÓN */
+/* ========================================= */
+label {
+    display: block;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #0A2463;
+    margin: 16px 0 6px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 12px;
+    border: 2px solid #BFD9FF;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);
+    font-size: 15px;
+    font-weight: 700;
+    color: #0A1A33;
+    outline: none;
+    border-top: 4px solid #FFFFFF;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.15), 0 3px 0 rgba(0,0,0,0.5);
+}
+
+input:focus {
+    border-color: #00BFFF;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1), 0 0 0 3px rgba(0,191,255,0.4), 0 4px 0 rgba(0,0,0,0.5);
+}
+
+input::placeholder {
+    color: #7A9AC2;
+    font-weight: 600;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1E90FF;
+    margin-right: 8px;
+}
+
+/* ========================================= */
+/* BOTONES METALIZADOS */
+/* ========================================= */
+button, section a[href="login.html"], section a[href="register.html"] {
+    display: inline-block;
+    background: linear-gradient(180deg, #00E5FF 0%, #1E90FF 45%, #0A2463 100%);
+    color: white;
+    font-weight: 900;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 15px;
+    border-top: 3px solid #FFFFFF;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+button:hover {
+    background: linear-gradient(180deg, #FFFFFF 0%, #00BFFF 40%, #0A2463 100%);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.5);
+}
+
+/* Links dentro de login */
+section a {
+    color: #0A5ED6;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+section a:hover {
+    color: #00BFFF;
+    text-decoration: underline;
+}
+
+/* ========================================= */
+/* LOGIN ESPECIAL */
+/* ========================================= */
+#login {
+    background: linear-gradient(180deg, #FFFFFF 0%, #DCE9FF 55%, #7AB8FF 100%);
+    text-align: center;
+    border-top: 8px solid #FFFFFF;
+}
+
+#login ul {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+#login ul li {
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+
+#login ul li a {
+    display: inline-block;
+    background: linear-gradient(180deg, #0A2463 0%, #1E90FF 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-top: 3px solid #FFFFFF;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.5), 0 8px 15px rgba(0,0,0,0.35);
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+footer {
+    background: linear-gradient(180deg, #0A2463 0%, #020A1F 100%);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-weight: 700;
+    border-top: 4px solid #00BFFF;
+    box-shadow: 0 -8px 20px rgba(0,0,0,0.5);
+}
+
+footer p {
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+    header h1 { font-size: 26px; }
+    nav ul { gap: 8px; }
+    section { padding: 20px; }
+}
